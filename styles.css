@@ -1,0 +1,1086 @@
+/* Reset and Base Styles */
+:root {
+    --primary-color: #FF4B91;
+    --primary-dark: #D4367A;
+    --secondary-color: #FFB0B0;
+    --accent-color: #00C897;
+    --bg-light: #FAFAFA;
+    --bg-white: #FFFFFF;
+    --text-dark: #1A1A2E;
+    --text-light: #666666;
+    --red: #FF6B6B;
+    --orange: #FFA07A;
+    --green: #4CAF50;
+    --blue: #4D96FF;
+    --teal: #20B2AA;
+    --purple: #9B59B6;
+    --border-radius: 16px;
+    --shadow-soft: 0 10px 30px rgba(255, 75, 145, 0.15);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --font-main: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+
+.mt-4 {
+    margin-top: 30px;
+}
+
+.text-pink {
+    color: var(--primary-color);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.3;
+}
+
+.main-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin: 15px 0;
+    color: var(--white);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Sections */
+.section-dark {
+    background-color: var(--text-dark);
+    color: #FFF;
+    padding: 80px 0;
+}
+
+.section-light {
+    background-color: #F0F4F8;
+    padding: 80px 0;
+}
+
+.section-white {
+    background-color: var(--bg-white);
+    padding: 80px 0;
+}
+
+.section-primary {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    color: #FFF;
+    padding: 80px 0;
+}
+
+.section-gradient {
+    background: linear-gradient(to bottom, #FFF, #FFE5F1);
+    padding: 80px 0;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 200, 151, 0.7);
+    }
+
+    70% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 15px rgba(0, 200, 151, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 200, 151, 0);
+    }
+}
+
+@keyframes pulsePink {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 75, 145, 0.7);
+    }
+
+    70% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 15px rgba(255, 75, 145, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 75, 145, 0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Buttons & Badges */
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-color), #00A67E);
+    color: #FFF;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 200, 151, 0.3);
+    transition: transform 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+}
+
+.btn-large {
+    font-size: 1.3rem;
+    padding: 20px 50px;
+    margin: 30px 0;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-pink {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: #FFF;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 75, 145, 0.3);
+    transition: transform 0.3s;
+}
+
+.btn-pink:hover {
+    transform: translateY(-3px);
+}
+
+.pulse-anim-pink {
+    animation: pulsePink 2s infinite;
+}
+
+
+.btn-outline {
+    display: inline-block;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.pulse-anim {
+    animation: pulse 2s infinite;
+}
+
+.badge-urgency {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFD700;
+    color: #8B6508;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.badge-tag {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--primary-dark);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* BLOCO 1 - HERO */
+.subtitle {
+    font-size: 1.3rem;
+    color: #E0E0E0;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.hero-highlight {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.hero-highlight p {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #CCC;
+}
+
+.hero-benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.hero-benefits-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.hero-benefits-list i {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+}
+
+.delivery-info {
+    font-size: 0.9rem;
+    color: #AAA;
+}
+
+/* NOVA SEÇÃO: CICLO VICIOSO */
+.vicious-cycle h2 {
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.cycle-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.cycle-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+}
+
+.cycle-item {
+    background: #FFF;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-card);
+    font-weight: 700;
+    color: var(--text-dark);
+    text-align: center;
+    border: 1px solid #EEE;
+    position: relative;
+    width: fit-content;
+    max-width: 90%;
+}
+
+.cycle-item p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cycle-center-image {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #F0F4F8;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 8px solid #FFF;
+    margin: 20px 0;
+}
+
+.img-placeholder {
+    font-size: 4rem;
+    color: #CCC;
+}
+
+.item-1 {
+    align-self: center;
+}
+
+.item-2 {
+    align-self: flex-end;
+    margin-right: 10%;
+}
+
+.item-3 {
+    align-self: flex-end;
+    margin-right: 5%;
+}
+
+.item-4 {
+    align-self: flex-start;
+    margin-left: 5%;
+}
+
+.item-5 {
+    align-self: flex-start;
+    margin-left: 10%;
+}
+
+.pill-orange {
+    background: #F4A261;
+    color: #FFF;
+    padding: 30px 40px;
+    border-radius: 40px;
+    max-width: 700px;
+    margin: 40px auto 0;
+    box-shadow: 0 10px 20px rgba(244, 162, 97, 0.3);
+}
+
+.pill-orange h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #FFF;
+}
+
+.pill-orange p {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #FFF;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* NOVA SEÇÃO: VOCÊ NÃO PRECISA MAIS */
+.no-more-section {
+    padding: 80px 0;
+}
+
+.no-more-section h2 {
+    margin-bottom: 50px;
+}
+
+.no-more-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.no-more-card {
+    background: #FFF;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+    border: 1px solid #EEE;
+    transition: transform 0.3s;
+}
+
+.no-more-card:hover {
+    transform: translateY(-5px);
+}
+
+.emoji-top {
+    position: absolute;
+    top: -25px;
+    background: #FFF;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.no-more-card p {
+    margin: 15px 0 0;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+}
+
+/* BLOCO 2 - DEMONSTRATIVO */
+.highlight-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+blockquote {
+    font-size: 1.8rem;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--text-dark);
+    margin: 30px 0;
+}
+
+.simple-idea {
+    background: #FFF;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    display: inline-block;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.steps-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.proof-card {
+    background: #FFF;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.proof-card i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.mockup-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.mockup-item {
+    background: #E2E8F0;
+    height: 120px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+}
+
+.mockup-item span {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.bold-highlight {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+/* BLOCO 3 - BENEFÍCIOS */
+.benefits-vertical {
+    display: grid;
+    gap: 30px;
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.benefit-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: #FFF;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+}
+
+.icon-box {
+    background: rgba(255, 75, 145, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.icon-box i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.benefit-row h3 {
+    margin-bottom: 5px;
+}
+
+.benefit-row p {
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* BLOCO 4 - URGÊNCIA */
+.urgency-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.urgency-subtitle {
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #FFD700;
+    margin-bottom: 30px;
+}
+
+.urgency-text {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.highlight-cycle {
+    background: #FFF;
+    color: var(--primary-dark);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 1.4rem;
+}
+
+/* BLOCO 5 - IDEAL PARA VOCÊ */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.target-card {
+    background: #FFF;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+}
+
+.target-card i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.text-red {
+    color: var(--red);
+}
+
+.text-orange {
+    color: var(--orange);
+}
+
+.text-green {
+    color: var(--green);
+}
+
+.text-blue {
+    color: var(--blue);
+}
+
+.text-teal {
+    color: var(--teal);
+}
+
+.text-purple {
+    color: var(--purple);
+}
+
+/* BLOCO 6 - ENTREGÁVEIS */
+.digital-access {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.desc-text {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.prod-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    background: #F8F9FA;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.prod-item i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.final-motto {
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+    margin-top: 40px;
+}
+
+/* BLOCO 7 - BÔNUS */
+.bonus-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF;
+    color: var(--text-dark);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin: 20px 0 40px;
+    box-shadow: var(--shadow-card);
+}
+
+.bonus-badge i {
+    color: #FF4500;
+}
+
+.bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.bonus-card {
+    background: #FFF;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid var(--primary-color);
+}
+
+.b-header {
+    font-weight: 800;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.bonus-checks {
+    margin: 15px 0;
+}
+
+.bonus-checks li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.bonus-checks i {
+    color: var(--accent-color);
+}
+
+.vul-price {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    padding-top: 15px;
+    border-top: 1px solid #EEE;
+}
+
+.vul-price del {
+    color: var(--red);
+    font-weight: bold;
+}
+
+.free {
+    color: var(--accent-color);
+    font-weight: 800;
+}
+
+/* BLOCO 8 - PLANOS */
+.urgency-title {
+    color: var(--primary-dark);
+}
+
+.pricing-plans-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    align-items: stretch;
+}
+
+.pricing-card {
+    background: #FFF;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-card);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.pricing-card.basic {
+    border: 2px solid #E0E0E0;
+    margin-top: 20px;
+}
+
+.pricing-card.complete {
+    border: 3px solid var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 0 20px 50px rgba(255, 75, 145, 0.2);
+    z-index: 2;
+}
+
+.popular-badge {
+    background: var(--primary-color);
+    color: #FFF;
+    text-align: center;
+    font-weight: 800;
+    padding: 8px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.p-header {
+    padding: 30px 30px 20px;
+}
+
+.basic .p-header {
+    background: #F8F9FA;
+}
+
+.complete .p-header {
+    background: var(--primary-color);
+    color: #FFF;
+}
+
+.p-header h3 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.p-header p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.p-body {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.recebe-text {
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.pricing-features {
+    margin-bottom: 20px;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.pricing-features i {
+    color: var(--accent-color);
+    margin-top: 3px;
+}
+
+.bonus-features i {
+    color: var(--primary-color);
+}
+
+.price-box {
+    text-align: center;
+    margin: 30px 0;
+    background: #FAFAFA;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: var(--red);
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.price span {
+    font-size: 1.5rem;
+}
+
+.economia {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.micro-text {
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+}
+
+.pricing-card a {
+    margin-top: auto;
+}
+
+.post-pricing-text {
+    margin-top: 100px !important;
+    position: relative;
+    z-index: 3;
+}
+
+.check-final {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.check-final i {
+    color: var(--accent-color);
+}
+
+/* BLOCO 9 - FAQ */
+.max-w-800 {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-accordion {
+    margin-top: 40px;
+}
+
+.faq-item {
+    background: #FFF;
+    border: 1px solid #E0E0E0;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-btn {
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.faq-btn:hover {
+    background: #F8F9FA;
+}
+
+.faq-btn i {
+    transition: transform 0.3s;
+    color: var(--primary-color);
+}
+
+.faq-btn.active i {
+    transform: rotate(180deg);
+}
+
+.faq-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+}
+
+.faq-btn.active+.faq-content {
+    padding: 0 20px 20px;
+    max-height: 500px;
+}
+
+/* BLOCO 10 - RODAPÉ */
+footer {
+    background: var(--text-dark);
+    color: #FFF;
+    padding: 60px 0;
+    font-size: 0.9rem;
+}
+
+.disclaimer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 30px;
+    padding-top: 30px;
+    color: #888;
+    font-size: 0.8rem;
+    text-align: justify;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .pricing-plans-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card.complete {
+        transform: none;
+        margin-top: 20px;
+    }
+
+    .hero-benefits-list {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .steps-row {
+        flex-direction: column;
+    }
+}
