@@ -83,6 +83,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const nextBtn = carousel.querySelectorAll('button')[1];
 
         let currentIndex = 0;
+        let autoPlayTimer;
+
+        const startAutoPlay = () => {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = setInterval(autoAdvance, 3500);
+        };
+
+        const autoAdvance = () => {
+            if (!slides.length) return;
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            const containerWidth = track.parentElement.getBoundingClientRect().width;
+            const visibleSlides = Math.round(containerWidth / slideWidth);
+            const maxIndex = Math.max(0, slides.length - visibleSlides);
+
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateCarousel();
+        };
 
         const updateCarousel = () => {
             if (!slides.length) return;
@@ -100,7 +121,10 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener('resize', updateCarousel);
 
         // Timeout to allow initial layout to settle
-        setTimeout(updateCarousel, 100);
+        setTimeout(() => {
+            updateCarousel();
+            startAutoPlay();
+        }, 100);
 
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
@@ -108,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     currentIndex--;
                 }
                 updateCarousel();
+                startAutoPlay();
             });
         }
 
@@ -122,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     currentIndex++;
                 }
                 updateCarousel();
+                startAutoPlay();
             });
         }
 
@@ -135,6 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
             currentX = startX;
             isDragging = true;
             track.style.transition = 'none';
+            clearInterval(autoPlayTimer);
         }, { passive: true });
 
         track.addEventListener('touchmove', (e) => {
@@ -168,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
             updateCarousel();
+            startAutoPlay();
         });
     });
 });
